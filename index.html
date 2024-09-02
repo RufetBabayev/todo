@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="flex flex-col items-center py-3">
+      <div class="w-80 space-y-3">
+        <form
+          id="formContainer"
+          class="border border-black flex justify-between"
+        >
+          <input class="py-2 outline-none px-1" type="text" id="todoInput" />
+          <button class="bg-green-500 text-white px-3 border-l border-l-black">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </form>
+        <div class="flex justify-between space-x-2">
+          <button
+            id="allBtn"
+            class="border border-gray-400 w-full p-2 rounded-md active filterBtn"
+          >
+            All
+          </button>
+          <button
+            id="completedBtn"
+            class="border border-gray-400 w-full rounded-md filterBtn"
+          >
+            Completed
+          </button>
+          <button
+            id="pendingBtn"
+            class="border border-gray-400 w-full rounded-md filterBtn"
+          >
+            Pending
+          </button>
+        </div>
+        <div id="todoContainer" class="space-y-1">
+          <!--  
+          <input
+            class="a"
+            type="radio"
+            id="html"
+            name="fav_language"
+            value="HTML"
+          />
+           
+          <label for="html">
+            <button
+              id="allBtn"
+              class="border border-gray-400 w-full p-2 rounded-md active filterBtn"
+            >
+              All
+            </button> </label
+          ><br />
+           
+          <input
+            class="a"
+            type="radio"
+            id="css"
+            name="fav_language"
+            value="CSS"
+          />
+           
+          <label for="css">
+            <button
+              id="completedBtn"
+              class="border border-gray-400 w-full rounded-md filterBtn"
+            >
+              Completed
+            </button> </label
+          ><br />
+           
+          <input
+            class="a"
+            type="radio"
+            id="javascript"
+            name="fav_language"
+            value="JavaScript"
+          />
+           
+          <label for="javascript">
+            <button
+              id="pendingBtn"
+              class="border border-gray-400 w-full rounded-md filterBtn"
+            >
+              Pending
+            </button>
+          </label> -->
+          <!-- <div class="flex justify-between w-full border border-gray-300 p-2">
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" /> <span>Salam</span>
+            </label>
+            <div class="flex items-center space-x-2">
+              <button
+                class="bg-blue-500 border border-gray-500 text-white px-1 rounded-lg"
+              >
+                <i class="fa-solid fa-pen"></i>
+              </button>
+              <button
+                class="bg-red-500 border border-gray-500 text-white px-1 rounded-lg"
+              >
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

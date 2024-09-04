@@ -11,6 +11,7 @@ const filterBtn = document.querySelectorAll(".filterBtn");
 
 let todoValue = "";
 let allTodos = [];
+let editId = null;
 
 // get values from input func
 
@@ -26,11 +27,24 @@ function getValueFromInput(e) {
 
 function addTodoArray(e) {
   e.preventDefault();
-  if (todoInput.value.trim() !== "") {
+  if (!editId && todoInput.value.trim() !== "") {
     allTodos.push(todoValue);
-    createUi(allTodos);
-    todoInput.value = "";
+  } else {
+    editingProcess();
   }
+  createUi(allTodos);
+  todoInput.value = "";
+}
+
+function editingProcess() {
+  allTodos = allTodos.map((todo) => {
+    if (todo.id === editId) {
+      return { ...todo, name: todoInput.value };
+    } else {
+      return todo;
+    }
+  });
+  editId = null;
 }
 
 function createUi(todos) {
@@ -46,8 +60,8 @@ function createUi(todos) {
         }>${todo.name}</span>
             </label>
             <div class="flex items-center space-x-2">
-              <button
-                class="bg-blue-500 border border-gray-500 text-white px-1 rounded-lg"
+              <button data-id=${todo.id} 
+                class="bg-blue-500 border border-gray-500 text-white px-1 rounded-lg editBtn"
               >
                 <i class="fa-solid fa-pen"></i>
               </button>
@@ -63,6 +77,7 @@ function createUi(todos) {
   todoContainer.innerHTML = html;
   selectCheckBoxes();
   findDeleteId();
+  handleEdit();
 }
 
 // select check boxes from html
@@ -137,6 +152,18 @@ filterBtn.forEach((filterBtn) => {
     );
   });
 });
+
+// edit
+function handleEdit() {
+  const editBtns = document.querySelectorAll(".editBtn");
+  editBtns.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      editId = +btn.getAttribute("data-id");
+      const findTodoById = allTodos.find((t) => t.id === editId);
+      todoInput.value = findTodoById.name;
+    })
+  );
+}
 
 // global event listeners
 
